@@ -1,8 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import './App.css';
 import Tmdb from './Tmdb';
-import LinhadeFilmes from './components/LinhadeFilmes';
-import FeaturedMovie from './components/FilmeEmDestaque';
+import LinhadeFilmes from '../components/LinhaDeFilmes/LinhadeFilmes';
+import FeaturedMovie from '../components/FilmeEmDestaque/FilmeEmDestaque';
+import Header from '../components/Header/Header';
 
 
 export default () => {
