@@ -1,22 +1,29 @@
-import React from 'react';
-import { Routes,Route} from 'react-router-dom';
-import Post from './pages/post'
-import Edit from './pages/edit'
-import Feed from './pages/feed'
-import Lermais from './pages/lermais'
+import React, {useEffect, useState} from 'react';
+import './App.css';
+import Tmdb from './Tmdb';
+import LinhadeFilmes from './components/LinhadeFilmes';
 
+export default () => {
 
-export default function App(){
-   return(
-        <div>
-            <h1>Teste</h1>
-            <Routes>
-                <Route path='/Post' element={<Post/>} />
-                <Route path='/edit' element={<Edit/>} />
-                <Route path='/Feed' element={<Feed/>} />
-                <Route path='/Lermais' element={<Lermais/>} />
-            </Routes>
-         </div>
-   );
+    const [movieList, setMovieList] = useState([]);
+
+    useEffect(() =>{
+        const loadAll = async () => {
+            //Pegando a lista TOTAL
+            let list = await Tmdb.getHomeList();
+            setMovieList(list)
+        }
+        loadAll();
+    }, []);
+
+    return (
+        <div className="page">
+           <section className="lists">
+            {movieList.map((item,key) =>(
+               <LinhadeFilmes key={key} title={item.title} items={item.items}/>
+            ))}
+           </section>
+           
+        </div>
+    );
 }
-
