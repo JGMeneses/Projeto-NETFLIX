@@ -21,7 +21,8 @@ export default () => {
             let originals = list.filter(i=>i.slug==='originals');
             let aleatorio = Math.floor(Math.random() * (originals[0].items.results.length -1));
             let chosen =originals[0].items.results[aleatorio];
-            console.log(chosen);
+            let chosenInfo =  await Tmdb.getMovieInfo(chosen.id, 'tv');
+            setFeaturedData(chosenInfo);
 
         }
         loadAll();
