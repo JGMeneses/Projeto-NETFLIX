@@ -10,6 +10,7 @@ export default () => {
 
     const [movieList, setMovieList] = useState([]);
     const [featuredData, setFeaturedData] = useState([]);
+    const [blackHeader, setBlackHeader] = useState(false);
 
     useEffect(() =>{
         const loadAll = async () => {
@@ -29,10 +30,28 @@ export default () => {
         loadAll();
     }, []);
 
+    useEffect(() => {
+        const scrollListener = () => {
+            if(window.scrollY > 10) {
+                setBlackHeader(true);
+            
+            }else{
+                setBlackHeader(false);
+            }
+
+        }
+        window.addEventListener(`scroll`, scrollListener);
+
+        return () => {
+            window.removeEventListener(`scroll`, scrollListener);
+        }
+    }, []);
+    
+
     return (
         <div className="page">
 
-        <Header/>    
+        <Header black = {blackHeader}/>    
         {featuredData &&
             <FeaturedMovie item={featuredData} />
         }
@@ -42,6 +61,11 @@ export default () => {
                <LinhadeFilmes key={key} title={item.title} items={item.items}/>
             ))}
            </section>
+                
+           <footer>
+                <span role="img" arial-aria-label="M01"> ︻デ═一....•°• S2!! </span> jottinha<br/>
+                Direitos de imagem para Netflix<br/>
+           </footer>
            
         </div>
     );

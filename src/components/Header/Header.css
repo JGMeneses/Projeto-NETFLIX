@@ -10,6 +10,7 @@ header{
     align-items: center;
     padding: 35px;
     background: transparent;
+    transition: all ease 0.5s;
 }
 header.black {
     background-color: #141414;
