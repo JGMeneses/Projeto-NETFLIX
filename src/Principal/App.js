@@ -32,6 +32,7 @@ export default () => {
     return (
         <div className="page">
 
+        <Header/>    
         {featuredData &&
             <FeaturedMovie item={featuredData} />
         }
