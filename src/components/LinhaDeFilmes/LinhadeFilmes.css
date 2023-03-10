@@ -8,6 +8,9 @@
     overflow-x:hidden;
     padding-left: 30px;
 }
+.movieRow--list{
+    transition: all ease 0.5s;
+}
 .movieRow--list {
     width: 1234123px;
 }
@@ -25,3 +28,30 @@
 .movieRow--item img:hover {
     transform: scale(1);
 }
+
+ .movierow--left, 
+ .movierow--right {
+    position:absolute;
+    width: 40px;
+    height: 225px;
+    background-color: rgba(0, 0, 0,0.6);
+    z-index: 99;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    cursor: pointer;
+    opacity: 0;
+    transition: all ease 0.5s;
+ }
+
+ .movierow--left {
+    left: 0;
+ }
+ .movierow--right {
+    right: 0;
+ }
+
+ .movieRow:hover .movierow--left, .movieRow:hover  .movierow--right{
+    opacity: 1;
+ }
