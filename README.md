@@ -1,4 +1,4 @@
-# //https://github.com/JGMeneses/Projeto-NETFLIX.git<br>
+#https://github.com/JGMeneses/Projeto-NETFLIX.git<br>
 #npm install<br>
 #npm install @material-ui/core --force<br>
 #npm install @material-ui/icons<br>
