@@ -3,10 +3,7 @@ import './FilmeEmDestaque.css';
 
 
 export default ({item}) => {
-    console.log(item);
-
-
-        let firstDate = new Date(item.first_air_Date);
+    
         let genres = [];
         for(let i in item.genres){
             genres.push(item.genres[i].name);
